@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="WeatherApp">
+<html lang="en" ng-app="WeatherApp" ng-cloak>
 <head>
 	<meta charset="UTF-8">
 	<title>Weather Widget</title>
@@ -11,7 +11,13 @@
 <!-- Widget Body -->
 <div ng-controller="WidgetCtrl" class="widget_container">
 	<div class="widget card-0">
-		{{message}}
+		<div class="_loading" ng-hide="widgetReady">
+			{{message}}
+		</div>
+		<div class="_body" ng-show="widgetReady">
+			<h1>{{city}}, {{state}}</h1>
+			<h2>{{currentTemp}}&deg; F</h2>
+		</div>
 	</div>
 </div>
 

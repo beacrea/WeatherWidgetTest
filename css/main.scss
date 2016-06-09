@@ -7,6 +7,14 @@ $color_white2: #eee;
 $page_bg: $color_white2;
 $page_font: 'Roboto', helvetica, arial, san-serif;
 
+// Helpers
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+* {
+  box-sizing: border-box;
+}
+
 // Initial Styles
 html, body {
   width: 100%;
@@ -34,6 +42,7 @@ body {
   @include align-items(center);
 }
 .widget {
+  padding: 1.6rem;
   background-color: $color_white0;
   height: 30rem;
   width: 40rem;

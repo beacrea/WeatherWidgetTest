@@ -1,7 +1,15 @@
 // App Decalaration
-var app = angular.module('WeatherApp', []);
+var app = angular.module('WeatherApp', ['ngResource']);
+
+// Factories
+app.factory('Forecast', function($resource) {
+    return $resource('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22mclean%2Cva%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys');
+});
 
 // Controllers
-app.controller('WidgetCtrl', ['$scope', function($scope){
-    $scope.message="Yo";
+app.controller('WidgetCtrl', ['$scope', 'Forecast', function($scope, Forecast){
+    var forecast = Forecast.get({ count: $scope.count }, function() {
+        console.log(forecast);
+    });
+    $scope.message=forecast.count;
 }]);

@@ -1,0 +1,40 @@
+// Includes
+@import "flexbox";
+
+// Variables
+$color_white0: #fafafa;
+$color_white2: #eee;
+$page_bg: $color_white2;
+$page_font: 'Roboto', helvetica, arial, san-serif;
+
+// Initial Styles
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  background-color: $page_bg;
+  font-family: $page_font;
+}
+
+// Card Styles
+.card-0 {
+  box-shadow: 0 0 0.5rem rgba(black, 0.3);
+  border-radius: 0.5rem;
+}
+
+// Widget Styles
+.widget_container {
+  height: 100%;
+  width: 100%;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+}
+.widget {
+  background-color: $color_white0;
+  height: 30rem;
+  width: 40rem;
+}

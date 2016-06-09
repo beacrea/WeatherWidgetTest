@@ -8,8 +8,26 @@ app.factory('Forecast', function($resource) {
 
 // Controllers
 app.controller('WidgetCtrl', ['$scope', 'Forecast', function($scope, Forecast){
-    var forecast = Forecast.get({ count: $scope.count }, function() {
-        console.log(forecast);
+    // Widget Ready Status
+    $scope.message = 'loading...';
+    $scope.widgetReady = false;
+
+    // Get Forecast
+    Forecast.get(function(data) {
+        // All Data
+        var forecast = data.query.results.channel;
+
+        // Location
+        $scope.city = forecast.location.city;
+        $scope.state = forecast.location.region;
+
+        // Current Conditions
+        $scope.currentTemp = forecast.item.condition.temp;
+
+        // Widget Ready Status
+        $scope.widgetReady = true;
+    }, function(error) {
+        $scope.message = "Error retrieving forecast";
+        console.log('There was an error with the weather endpoint');
     });
-    $scope.message=forecast.count;
 }]);

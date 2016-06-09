@@ -5,10 +5,11 @@
 	<title>Weather Widget</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+	<link rel="stylesheet" href="css/weather-icons.min.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!-- Widget Body -->
+<!-- Widget Body -->x
 <div ng-controller="WidgetCtrl" class="widget_container">
 	<div class="widget card-0">
 		<div class="_loading" ng-hide="widgetReady">
@@ -17,7 +18,7 @@
 		<div class="_body" ng-show="widgetReady">
 			<h1>{{city}}, {{state}}</h1>
 			<h2>{{currentTemp}}&deg; F</h2>
-			<h3>{{icon}}</h3>
+			<i class="wi" ng-class="icon"></i>
 		</div>
 	</div>
 </div>

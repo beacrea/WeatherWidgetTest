@@ -82,7 +82,7 @@ app.controller('WidgetCtrl', ['$scope', 'Forecast', 'codeService', function($sco
 
         // Current Conditions
         $scope.currentTemp = forecast.item.condition.temp;
-        $scope.icon = codeService.matchCode(45);
+        $scope.icon = 'wi-' + codeService.matchCode(45);
 
         // Widget Ready Status
         $scope.widgetReady = true;

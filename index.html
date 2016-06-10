@@ -28,25 +28,9 @@
 				</div>
 			</div>
 			<div class="fiveDayForecast">
-				<div class="item">
-					<span class="day">Wed</span>
-					<span class="highLow">65&deg; / 23&deg;</span>
-				</div>
-				<div class="item">
-					<span class="day">Wed</span>
-					<span class="highLow">65&deg; / 23&deg;</span>
-				</div>
-				<div class="item">
-					<span class="day">Wed</span>
-					<span class="highLow">65&deg; / 23&deg;</span>
-				</div>
-				<div class="item">
-					<span class="day">Wed</span>
-					<span class="highLow">65&deg; / 23&deg;</span>
-				</div>
-				<div class="item">
-					<span class="day">Wed</span>
-					<span class="highLow">65&deg; / 23&deg;</span>
+				<div class="item" ng-repeat="day in upcomingDays | limitTo:6" ng-if="$index > 0">
+					<span class="day">{{day.day}}</span>
+					<span class="highLow">{{day.high}}&deg; / {{day.low}}&deg;</span>
 				</div>
 			</div>
 		</div>

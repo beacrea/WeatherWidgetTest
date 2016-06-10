@@ -3,7 +3,7 @@ var app = angular.module('WeatherApp', ['ngResource']);
 
 // Factories
 app.factory('Forecast', function($resource) {
-    return $resource('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22mclean%2Cva%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys');
+    return $resource('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22shawnee%2Cks%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys');
 });
 
 // Services
@@ -88,6 +88,9 @@ app.controller('WidgetCtrl', ['$scope', 'Forecast', 'codeService', function($sco
         // Today Info
         $scope.todayHigh = forecast.item.forecast[0].high;
         $scope.todayLow = forecast.item.forecast[0].low;
+
+        // 10-Day Forecast
+        $scope.upcomingDays = forecast.item.forecast;
 
         // Widget Ready Status
         $scope.widgetReady = true;

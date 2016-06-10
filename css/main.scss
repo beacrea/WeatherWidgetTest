@@ -7,6 +7,7 @@ $color_white2: #eee;
 $page_bg: $color_white2;
 $page_font: 'Roboto', helvetica, arial, san-serif;
 $genPadding: 1.6rem;
+$genBorder: 1px solid rgba(black, 0.2);
 
 // Helpers
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -50,15 +51,15 @@ body {
   font-size: 1.6rem;
   width: 100%;
   display: block;
+  padding: $genPadding;
 }
 .widget {
-  padding: $genPadding 0;
   background-color: $color_white0;
   max-height: 16rem;
   width: 31rem;
   .location {
 	font-size: 2rem;
-	padding: 0 $genPadding;
+	padding: $genPadding $genPadding 0;
 	margin-bottom: $genPadding/2;
   }
   .currentInfo {
@@ -88,14 +89,14 @@ body {
 	}
   }
   .fiveDayForecast {
-	border-top: 1px solid rgba(black, 0.2);
+	border-top: $genBorder;
   	margin-top: $genPadding;
-  	padding-top: $genPadding;
 	@include flexbox();
 	@include justify-content(center);
 	.item {
-	  padding: 0 $genPadding/2;
-	  border-right: 1px solid rgba(black, 0.2);
+	  @include flex-grow(1);
+	  padding: $genPadding $genPadding/2;
+	  border-right: $genBorder;
 	  &:last-child {
 		border: 0;
 	  }
@@ -105,6 +106,7 @@ body {
 	  }
 	  .day {
 		font-size: 1.6rem;
+		margin-bottom: 0.2rem
 	  }
 	  .highLow {
 		font-size: 1.1rem;

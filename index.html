@@ -29,8 +29,8 @@
 			</div>
 			<div class="fiveDayForecast">
 				<div class="item" ng-repeat="day in upcomingDays | limitTo:6" ng-if="$index > 0">
-					<span class="day">{{day.day}}</span>
-					<span class="highLow">{{day.high}}&deg; / {{day.low}}&deg;</span>
+					<span class="day">{{day.day || 'NA'}}</span>
+					<span class="highLow">{{day.high || '--'}}&deg; / {{day.low || '--'}}&deg;</span>
 				</div>
 			</div>
 		</div>

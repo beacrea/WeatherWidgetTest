@@ -45,6 +45,12 @@ body {
   @include align-items(center);
   line-height: 1;
 }
+._loading {
+  text-align: center;
+  font-size: 1.6rem;
+  width: 100%;
+  display: block;
+}
 .widget {
   padding: $genPadding 0;
   background-color: $color_white0;
@@ -74,14 +80,11 @@ body {
 	@include align-self(center);
 	& > span {
 	  display: block;
+	  font-size: 1.4rem;
 	}
 	.condition {
 	  font-weight: bold;
-	  font-size: 1.4rem;
 	  margin-bottom: 0.5rem;
-	}
-	.highLow {
-		font-size: 1rem;
 	}
   }
   .fiveDayForecast {

@@ -17,14 +17,14 @@
 		</span>
 		<div class="_body" ng-show="widgetReady">
 			<div class="location">
-				<span>{{city}}, {{state}}</span>
+				<span>{{city || 'Unknown'}}, {{state || 'Unknown'}}</span>
 			</div>
 			<div class="currentInfo">
-				<span class="temp-current">{{currentTemp}}&deg;F</span>
+				<span class="temp-current">{{currentTemp || '--'}}&deg;F</span>
 				<i class="wi icon-current" ng-class="icon"></i>
 				<div class="todayInfo">
-					<span class="condition">Partly Cloudy</span>
-					<span class="highLow">High 65&deg; / Low 23&deg;</span>
+					<span class="condition">{{currentStatus || 'Unknown'}}</span>
+					<span class="highLow">High {{todayHigh || '--'}}&deg; / Low {{todayLow || '--'}}&deg;</span>
 				</div>
 			</div>
 			<div class="fiveDayForecast">

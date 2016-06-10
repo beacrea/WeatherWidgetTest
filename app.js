@@ -68,7 +68,7 @@ app.service('codeService', function() {
 // Controllers
 app.controller('WidgetCtrl', ['$scope', 'Forecast', 'codeService', function($scope, Forecast, codeService){
     // Widget Ready Status
-    $scope.message = 'loading...';
+    $scope.message = 'Loading Weather...';
     $scope.widgetReady = false;
 
     // Get Forecast
@@ -82,7 +82,12 @@ app.controller('WidgetCtrl', ['$scope', 'Forecast', 'codeService', function($sco
 
         // Current Conditions
         $scope.currentTemp = forecast.item.condition.temp;
+        $scope.currentStatus = forecast.item.condition.text;
         $scope.icon = 'wi-' + codeService.matchCode(45);
+
+        // Today Info
+        $scope.todayHigh = forecast.item.forecast[0].high;
+        $scope.todayLow = forecast.item.forecast[0].low;
 
         // Widget Ready Status
         $scope.widgetReady = true;

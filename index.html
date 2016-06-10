@@ -9,16 +9,46 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!-- Widget Body -->x
+<!-- Widget Body -->
 <div ng-controller="WidgetCtrl" class="widget_container">
 	<div class="widget card-0">
-		<div class="_loading" ng-hide="widgetReady">
+		<span class="_loading" ng-hide="widgetReady">
 			{{message}}
-		</div>
+		</span>
 		<div class="_body" ng-show="widgetReady">
-			<h1>{{city}}, {{state}}</h1>
-			<h2>{{currentTemp}}&deg; F</h2>
-			<i class="wi" ng-class="icon"></i>
+			<div class="location">
+				<span>{{city}}, {{state}}</span>
+			</div>
+			<div class="currentInfo">
+				<span class="temp-current">{{currentTemp}}&deg;F</span>
+				<i class="wi icon-current" ng-class="icon"></i>
+				<div class="todayInfo">
+					<span class="condition">Partly Cloudy</span>
+					<span class="highLow">High 65&deg; / Low 23&deg;</span>
+				</div>
+			</div>
+			<div class="fiveDayForecast">
+				<div class="item">
+					<span class="day">Wed</span>
+					<span class="highLow">65&deg; / 23&deg;</span>
+				</div>
+				<div class="item">
+					<span class="day">Wed</span>
+					<span class="highLow">65&deg; / 23&deg;</span>
+				</div>
+				<div class="item">
+					<span class="day">Wed</span>
+					<span class="highLow">65&deg; / 23&deg;</span>
+				</div>
+				<div class="item">
+					<span class="day">Wed</span>
+					<span class="highLow">65&deg; / 23&deg;</span>
+				</div>
+				<div class="item">
+					<span class="day">Wed</span>
+					<span class="highLow">65&deg; / 23&deg;</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

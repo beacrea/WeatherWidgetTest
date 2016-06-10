@@ -6,6 +6,7 @@ $color_white0: #fafafa;
 $color_white2: #eee;
 $page_bg: $color_white2;
 $page_font: 'Roboto', helvetica, arial, san-serif;
+$genPadding: 1.6rem;
 
 // Helpers
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -20,6 +21,8 @@ html, body {
   width: 100%;
   height: 100%;
   font-size: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -40,13 +43,69 @@ body {
   @include flexbox();
   @include justify-content(center);
   @include align-items(center);
+  line-height: 1;
 }
 .widget {
-  padding: 1.6rem;
+  padding: $genPadding 0;
   background-color: $color_white0;
-  height: 30rem;
-  width: 40rem;
-}
-i.wi {
-  font-size: 3.2rem;
+  max-height: 16rem;
+  width: 31rem;
+  .location {
+	font-size: 2rem;
+	padding: 0 $genPadding;
+	margin-bottom: $genPadding/2;
+  }
+  .currentInfo {
+	@include flexbox();
+	@include align-items(center);
+	padding: 0 $genPadding;
+  }
+  .temp-current {
+	font-size: 4rem;
+	font-weight: bold;
+	margin-right: $genPadding;
+  }
+  .icon-current {
+	font-weight: bold;
+	font-size: 2.4rem;
+	margin-right: $genPadding/4;
+  }
+  .todayInfo {
+	@include align-self(center);
+	& > span {
+	  display: block;
+	}
+	.condition {
+	  font-weight: bold;
+	  font-size: 1.4rem;
+	  margin-bottom: 0.5rem;
+	}
+	.highLow {
+		font-size: 1rem;
+	}
+  }
+  .fiveDayForecast {
+	border-top: 1px solid rgba(black, 0.2);
+  	margin-top: $genPadding;
+  	padding-top: $genPadding;
+	@include flexbox();
+	@include justify-content(center);
+	.item {
+	  padding: 0 $genPadding/2;
+	  border-right: 1px solid rgba(black, 0.2);
+	  &:last-child {
+		border: 0;
+	  }
+	  & > span {
+		display: block;
+		text-align: center;
+	  }
+	  .day {
+		font-size: 1.6rem;
+	  }
+	  .highLow {
+		font-size: 1.1rem;
+	  }
+	}
+  }
 }
